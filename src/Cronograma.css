@@ -1,0 +1,65 @@
+.cronograma-container {
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cronograma-header {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cronograma-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--secondary-color);
+}
+
+.cronograma-header h1 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+
+.badge-periodo {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: rgba(246, 139, 31, 0.15);
+  color: var(--secondary-color);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid rgba(246, 139, 31, 0.3);
+}
+
+.cronograma-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.empty-state {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  border: 1px dashed var(--border-color);
+  background: transparent;
+}

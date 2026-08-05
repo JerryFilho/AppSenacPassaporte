@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import Home from './Home';
+import Cronograma from './Cronograma';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentScreen, setCurrentScreen] = useState('loading');
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    // Check if user is registered on mount
+    const storedData = localStorage.getItem('userData');
+    if (storedData) {
+      setUserData(JSON.parse(storedData));
+      setCurrentScreen('cronograma');
+    } else {
+      setCurrentScreen('home');
+    }
+  }, []);
+
+  const handleRegistrationComplete = (data) => {
+    setUserData(data);
+    setCurrentScreen('cronograma');
+  };
+
+  if (currentScreen === 'loading') {
+    return <div className="loading-screen">Carregando...</div>;
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app-container">
+      {currentScreen === 'home' && <Home onComplete={handleRegistrationComplete} />}
+      {currentScreen === 'cronograma' && <Cronograma userData={userData} />}
+    </div>
+  );
 }
 
-export default App
+export default App;
