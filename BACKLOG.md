@@ -1,5 +1,8 @@
 # Backlog
 
+## Infraestrutura
+- [x] Setup inicial do projeto React com Vite
+
 ## Visitantes
 - [ ] Cadastro inicial parcial de usuário
 - [ ] Cronograma
