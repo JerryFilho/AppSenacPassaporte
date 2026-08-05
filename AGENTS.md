@@ -14,3 +14,6 @@
     - Sempre preencha o summary com até 60 caracteres
     - Sempre preencha a descrição em formato de tópicos com detalhes das features
 - **IMPORTANTE:** sempre que fizer um commit, atualize o arquivo `BACKLOG.md` com o progresso atual do projeto
+
+## Testes
+- **NUNCA** execute e nem faça testes automatizados nesse projeto.
